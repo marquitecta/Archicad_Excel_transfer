@@ -16,3 +16,6 @@ As a test Plan, I have used the Archicad ‘Sample house Plan – version 23’ and th
 
 Revision: 8/9/2020
 Sheetsheets now use data types to define properties -- see video #3 for description.
+
+Revision 8/10/2020
+version 1_8 fixed bug in True/False option
