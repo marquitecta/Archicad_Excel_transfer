@@ -104,14 +104,17 @@ def findelements(objtype,columns,cellvalues):
        loops = len(xy.propertyValues)
        propertyok = 0
        for index in range(loops):
+           if cellvalues[index] == '':
+               continue
            propertyValueObject = xy.propertyValues[index].propertyValue
            if propertyValueObject.status != 'normal':
                continue
            if hasattr(propertyValueObject, "value"):
                out1 =  xy.propertyValues[index].propertyValue.value
-               if out1=='Office Workstation Solo 24': #debugging omly
-                   print('Found Workstation')
-                   print(rex_ok)
+               if out1=='Bathtub 23': #debugging omly
+                  # print('Found Bathtub')
+                   #print(rex_ok)
+                   pass
                if rex_ok.get() == 1:
                    if bool(re.match(cellvalues[index],out1)):
                        propertyok += 1
@@ -318,7 +321,7 @@ def mget(maxrows):
             
             execution_results = getfile(outckcols, outcellvalues, reslist[2]) # Sets propty value in selected properties
         else:
-            messagebox.showinfo('Status','No Matches Found\n{ckcols}\n{cellvalues}')
+            messagebox.showinfo('Status',f'No Matches Found\n{ckcols}\n{cellvalues}\nRow -{ix}')
             continue
         count =0
         for xyy in execution_results:
